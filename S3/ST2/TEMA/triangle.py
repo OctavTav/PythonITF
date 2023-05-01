@@ -21,3 +21,4 @@ class Triangle:
         pass
 
 
+t1 = Triangle()

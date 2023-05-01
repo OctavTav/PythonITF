@@ -1,0 +1,40 @@
+"""
+In general folosim FOR pentru a itera peste colectii sau in situatii in care stim
+exact numarul de repetiti.
+
+WHILE in schimb, este folosit atunci cand NU stim exact numarul de iteratii, DAR stim
+cand vrem sa ne oprim
+
+"""
+
+numbers = [4, 54, 6, 90, -5, 0]
+print("")
+for number in numbers:
+    print(number)
+
+idx = 0     #pornim de la primul element
+while idx < len(numbers)-1:     # cat timp indexul este mai mic decat lungimea listei
+    print(numbers[idx])
+    idx += 1            # trebuie sa incrementam NOI indexul, altfel intram in bucla infinita
+
+"""
+ATENTIE:
+in while, putem intra in bucla infinita, DACA conditia noastra nu devine niciodata False
+"""
+
+"""
+Exercitiu: avem un numar, vrem sa afisam toate numerele divizibile cu 5,
+intre acest numar si 100 (folosind while)
+
+"""
+nr = 12
+while nr <= 100:
+    if nr % 5 == 0:
+        print(nr)
+        nr += 1
+    else:
+        nr += 1
+        continue    # skip catre urmatoarea iteratie
+
+
+

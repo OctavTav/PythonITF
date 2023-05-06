@@ -84,11 +84,16 @@ for x in masini:
 print('-' * 40)
 
 masini_vechi = []
-for x in range(len(masini)):
-    if masini[x].capitalize() == 'Lastun' or masini[x].capitalize() == 'Trabant':
-        masini_vechi.append(masini[x])
-        masini[x] = 'Tesla'
+# for x in range(len(masini)):
+#     if masini[x].capitalize() == 'Lastun' or masini[x].capitalize() == 'Trabant':
+#         masini_vechi.append(masini[x])
+#         masini[x] = 'Tesla'
+
+for x in masini:
+    if x.capitalize() == 'Lastun' or x.capitalize() == 'Trabant':
+        masini_vechi.append(x)
+        pos = masini.index(x)
+        masini[pos] = masini[pos].replace(x, 'Tesla')
+
 print(f"Modele vechi {masini_vechi}")
 print(f"Modele noi {masini}")
-
-

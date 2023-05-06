@@ -31,4 +31,3 @@ while numar_ghicit != numar_secret:
         print("Numarul este mai mare")
 else:
     print("Felicitari, ai ghicit numarul")
-

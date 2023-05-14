@@ -16,6 +16,7 @@ De obicei il folosim in situatii in care nu ne intereseaza obiectul in sine, ci 
 Exemplu: cand avem un logger pentru un proiect (adica o clasa care logheaza
 """
 
+
 class Car:
     def __init__(self):
         pass
@@ -29,6 +30,7 @@ c1 si c2 sunt obiecte DIFERITE, adica au ID-uri diferite, si se afla in locatii 
 print(id(c1))
 print(id(c2))
 print(c1 == c2)
+
 
 class SingletonLogger:
     __instance = None   # atributul de clasa __instance va actiona ca un "obiect" fals
@@ -46,6 +48,7 @@ class SingletonLogger:
             cls.__instance = object.__new__(cls)
         # apoi il returnam, acelasi obiect de fiecare data
         return cls.__instance
+
 
 print('-' * 40)
 s1 = SingletonLogger()

@@ -3,8 +3,8 @@
 """
 
 
-def sum_of(nr1, nr2):
-    return nr1 + nr2
+def sum_of(number1, number2):
+    return number1 + number2
 
 
 print(sum_of(5, 3))
@@ -33,7 +33,7 @@ print("-" * 40)
 """
 
 
-def nr_of_chars(full_name):
+def nr_of_chars1(full_name):
     nr_chars = 0
     full_name_splitted = full_name.split(" ")
     for name in full_name_splitted:
@@ -42,8 +42,18 @@ def nr_of_chars(full_name):
     return f"Your name: {full_name} has {nr_chars} characters in it"
 
 
-print(nr_of_chars('Mihaila Octavian Dumitru'))
-print(nr_of_chars('Titi Aur'))
+def nr_of_chars2(full_name):
+    nr_chars = 0
+    for i in full_name:
+        if i.isalpha():
+            nr_chars += 1
+    return f"Your name: {full_name} has {nr_chars} characters in it"
+
+
+print(nr_of_chars1('Mihaila Octavian Dumitru'))
+print(nr_of_chars1('Titi Aur'))
+print(nr_of_chars2('Mihaila Octavian Dumitru'))
+print(nr_of_chars2('Titi Aur'))
 print("-" * 40)
 
 """
@@ -64,13 +74,16 @@ print("-" * 40)
 """
 
 
-def get_area_of_circle(radius):
-    PI = 3.14
-    return f"Area of a circle with radius {radius} is {PI * radius**2}"
+def get_area_of_circle(radius, color='gri'):
+    pi = 3.14
+    return f"Area of a circle with radius {radius} is {pi * radius**2} with {color}"
 
 
 print(get_area_of_circle(10))
 print(get_area_of_circle(3))
+print()
+print(get_area_of_circle(radius=2, color="mov"))
+print(get_area_of_circle(4, "verde"))
 print("-" * 40)
 
 """
@@ -101,9 +114,9 @@ def nr_lowers_uppers(string_given):
     x = 0
     y = 0
     for i in string_given:
-        if i == i.upper() and i.isalpha():
+        if i.isupper() and i.isalpha():
             x += 1
-        elif i == i.lower() and i.isalpha():
+        elif i.islower() and i.isalpha():
             y += 1
     print(f"In {string_given} we have:")
     print(f"{x} characters that are lower case")
@@ -203,13 +216,13 @@ def get_number_of_days(luna):
         return f"Luna {luna} nu exista"
 
 
-luna1 = "Mai"
-luna2 = "Decembrie"
-luna3 = "casd"
+month1 = "Mai"
+month2 = "Decembrie"
+month3 = "casd"
 
-print(get_number_of_days(luna1))
-print(get_number_of_days(luna2))
-print(get_number_of_days(luna3))
+print(get_number_of_days(month1))
+print(get_number_of_days(month2))
+print(get_number_of_days(month3))
 print('-' * 40)
 
 """
@@ -238,3 +251,171 @@ print("Suma: ", a)
 print("Diferenta: ", b)
 print("Inmultirea: ", c)
 print("Impartirea: ", d)
+print('-' * 40)
+
+"""
+13. Funcție care primește o listă de cifre (adică doar 0-9) 
+Exemplu: [1, 3, 1, 5, 9, 7, 7, 5, 5]
+Returnează un DICT care ne spune de câte ori apare fiecare cifră
+=> dict {
+0: 0
+1 :2
+2: 0
+3: 1
+4: 0
+5: 3
+6: 0
+7: 2
+8: 0
+9: 1
+}
+"""
+
+
+def number_counter(*args):
+    dict_counter = {
+        0: 0,
+        1: 0,
+        2: 0,
+        3: 0,
+        4: 0,
+        5: 0,
+        6: 0,
+        7: 0,
+        8: 0,
+        9: 0
+    }
+    for i in args:
+        if i in dict_counter:
+            dict_counter[i] += 1
+    for i, j in dict_counter.items():
+        print(f"{i}: {j}")
+    return dict_counter
+
+
+d = number_counter(1, 3, 1, 5, 9, 7, 7, 5, 5)
+print(d)
+print('-' * 40)
+
+"""
+14. Funcție care primește 3 numere. Returnează valoarea maximă dintre ele.
+"""
+
+
+def get_max(*args):
+    return max(args)
+
+
+max1 = get_max(2, 3, 8)
+print(max1)
+print('-' * 40)
+
+"""
+15. Funcție care să primească un număr și să returneze suma tuturor numerelor de la 0 la acel număr.
+Exemplu: dacă dăm numărul 3, suma va fi 6 (0+1+2+3)
+"""
+
+
+def sum_of_number(x):
+    total = 0
+    for i in range(x+1):
+        total += i
+
+    return total
+
+
+nr1 = sum_of_number(4)
+nr2 = sum_of_number(6)
+print(nr1)
+print(nr2)
+print('-' * 40)
+
+"""
+16.Funcție care primește 2 liste de numere (numerele pot fi dublate). Returnați numerele comune.
+
+Exemplu:
+list1 = [1, 1, 2, 3]
+list2 = [2, 2, 3, 4]
+Răspuns: {2, 3}
+"""
+
+
+def common_numbers(first_list, second_list):
+    common_set = set()
+    for i in first_list:
+        if i in second_list:
+            common_set.add(i)
+    return common_set
+
+
+list1 = [1, 1, 2, 3]
+list2 = [2, 2, 3, 4]
+ex16_t1 = common_numbers(list1, list2)
+print(ex16_t1)
+print('-' * 40)
+
+"""
+17. Funcție care să aplice o reducere de preț.
+Dacă produsul costă 100 lei și aplicăm reducere de 10%. Pretul va fi 90 de lei.
+Tratează cazurile în care reducerea e invalidă. De exemplu o reducere de 110% e invalidă.
+"""
+
+
+def get_discount(price, discount):
+    if price != 0 and discount < 100:
+        price = price * (1-discount/100)
+        return f"Price after discount is {price}"
+    else:
+        return f"Invalid discount"
+
+
+print(get_discount(100, 20))
+print(get_discount(100, 100))
+print(get_discount(0, 20))
+print('-' * 40)
+
+"""
+ 18.Funcție care să afișeze data și ora curentă din România.
+(bonus: afișazăi și data și ora curentă din China)
+"""
+
+# import pytz
+# from datetime import datetime
+#
+#
+# def get_time_romania():
+#     timezone_bucharest = pytz.timezone('Europe/Bucharest')    # cream un fus orar
+#     datetime_bucharest = datetime.now(timezone_bucharest)     # folosim fusul creat pentru a ne da data si ora actuala
+#     return f"Romania/Bucharest: {datetime_bucharest}"
+#
+#
+# def get_time_china():
+#     timezone_hong_kong = pytz.timezone('Asia/Hong_kong')
+#     datetime_hong_kong = datetime.now(timezone_hong_kong)
+#     return f"China/Hong_kong: {datetime_hong_kong}"
+#
+#
+# print(get_time_romania())
+# print(get_time_china())
+# print("-" * 40)
+
+"""
+19. Funcție care să afișeze câte zile mai sunt până la ziua ta / sau până la Crăciun dacă nu vrei să ne zici 
+cand e ziua ta :)
+"""
+
+# import datetime
+#
+#
+# def get_day_until_christmas():
+#     current_date = datetime.date.today()
+#     current_year = datetime.datetime.now().year
+#     christmas_date = datetime.date(current_year, 12, 25)
+#     if current_date > christmas_date:
+#         christmas_date = datetime.date(current_year+1, 12, 25)
+#         return f"Days remaining until Christmas {(christmas_date - current_date).days}"
+#     else:
+#         return f"Days remaining until Christmas {(christmas_date - current_date).days}"
+#
+#
+# print(get_day_until_christmas())

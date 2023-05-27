@@ -16,7 +16,9 @@ class Cont:
         self.sold = sold
 
     def afisare_sold(self):
+        print('-' * 40)
         print(f"Titular cont: {self.titular_cont}")
+        print(f"IBAN cont: {self.iban}")
         print(f"Sold curent: {self.sold}")
         print('-' * 40)
 
@@ -35,4 +37,6 @@ c1 = Cont(123, 'Georgica Buturuga', 10000)
 c1.afisare_sold()
 c1.debitare_cont(1200)
 c1.creditare_cont(3000)
+c1.afisare_sold()
+c1.debitare_cont(int(input("Introdu suma ce vrei sa o scoti: ")))
 c1.afisare_sold()

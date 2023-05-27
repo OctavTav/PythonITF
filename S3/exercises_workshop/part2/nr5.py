@@ -1,6 +1,7 @@
 """
 5. Clasa Factură
-     Atribute:  seria (va fi constantă, nu trebuie constructor, toate facturile vor avea aceeași serie),
+     Atribute:  seria (va fi constantă, nu trebuie constructor,
+                toate facturile vor avea aceeași serie),
                 număr, nume_produs, cantitate, pret_buc
      Constructor: toate atributele, fără serie
      Metode:
@@ -48,7 +49,7 @@ class Factura:
         self.lista_produse[nume_produs][2] = self.get_total_produs(nume_produs)
 
     def schimba_pretul(self, nume_produs, pret):
-        self.pret_buc = pret
+        self.lista_produse[nume_produs][1] = pret
         self.lista_produse[nume_produs][2] = self.get_total_produs(nume_produs)
 
     def sterge_produsul(self, nume_produs):
@@ -91,7 +92,7 @@ f1.schimba_cantitatea('TV', 5)
 f1.genereaza_factura()
 f1.schimba_pretul('Telefon', 1000)
 f1.genereaza_factura()
-f1.schimba_numele_produsului('Frigider', 'Congelator')
+f1.schimba_numele_produsului('Telefon', 'Congelator')
 f1.genereaza_factura()
 f1.sterge_produsul('TV')
 f1.genereaza_factura()

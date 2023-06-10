@@ -114,7 +114,7 @@ def decorator(func_originala):
         result = func_originala(*args, **kwargs)
         ...post-procesare [optional]
         return result
-        
+    return inner
 """
 
 """
